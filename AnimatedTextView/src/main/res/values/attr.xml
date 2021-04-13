@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AnimatedTextView">
+
+        <attr name="atv_prefixToExclude" format="string"/>
+        <attr name="atv_suffixToExclude" format="string"/>
+        <attr name="atv_animationDuration" format="integer"/>
+
+    </declare-styleable>
+
+</resources>

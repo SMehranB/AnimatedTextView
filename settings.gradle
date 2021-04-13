@@ -1,0 +1,3 @@
+include ':AnimatedTextView'
+include ':app'
+rootProject.name = "AnimatedTextViewSample"
