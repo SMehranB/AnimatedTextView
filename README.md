@@ -1,4 +1,4 @@
-# Animated Text View
+# Animated Text View [![](https://jitpack.io/v/SMehranB/AnimatedTextView.svg)](https://jitpack.io/#SMehranB/AnimatedTextView)
 
 ## A text view with the ability to animate your values
  
@@ -15,10 +15,11 @@
 
 ## Screen recording
  
- <img src="./screen_recording.gif" height="720"> <img src="./screen_recording.png" height="720">
+ <img src="./screen_recording.png" height="720">
  
 # Install
- 
+
+ ## Gradle
 ```
 allprojects {
 	repositories {
@@ -27,18 +28,24 @@ allprojects {
 	}
 }
 ```
-## Gradle
-
 ```
 dependencies {
-	 implementation 'com.github.SMehranB:GlowButton:1.0.0'
+	 implementation 'com.github.SMehranB:AnimatedTextView:1.0.0'
 }
 ```
 ## Maven
 ```
+<repositories>
+	<repository>
+	    <id>jitpack.io</id>
+	    <url>https://jitpack.io</url>
+	</repository>
+</repositories>
+```
+```
 <dependency>
 	<groupId>com.github.SMehranB</groupId>
-	<artifactId>GlowButton</artifactId>
+	<artifactId>AnimatedTextView</artifactId>
 	<version>1.0.0</version>
 </dependency>
  ```
