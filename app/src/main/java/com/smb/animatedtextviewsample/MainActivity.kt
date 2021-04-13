@@ -9,9 +9,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtPriceOne.setPrefixSuffix("Price: ", " CAD")
-        txtPriceOne.setText("123,456")
-
         btnAnimate1.setOnClickListener {
             txtPriceOne.animateTo("731,984,625")
             txtPriceTwo.animateTo("937.75")
