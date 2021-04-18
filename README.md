@@ -20,7 +20,7 @@
 # Install
 
  ## Gradle
-```
+```groovy
 allprojects {
 	repositories {
 		...
@@ -28,13 +28,13 @@ allprojects {
 	}
 }
 ```
-```
+```groovy
 dependencies {
 	 implementation 'com.github.SMehranB:AnimatedTextView:1.0.0'
 }
 ```
 ## Maven
-```
+```xml
 <repositories>
 	<repository>
 	    <id>jitpack.io</id>
@@ -42,7 +42,7 @@ dependencies {
 	</repository>
 </repositories>
 ```
-```
+```xml
 <dependency>
 	<groupId>com.github.SMehranB</groupId>
 	<artifactId>AnimatedTextView</artifactId>
