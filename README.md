@@ -37,7 +37,7 @@ dependencies {
 }
 ```
 ## Maven
-```groovy
+```xml
 <repositories>
 	<repository>
 	    <id>jitpack.io</id>
@@ -45,7 +45,7 @@ dependencies {
 	</repository>
 </repositories>
 ```
-```groovy
+```xml
 <dependency>
 	<groupId>com.github.SMehranB</groupId>
 	<artifactId>AnimatedTextView</artifactId>
