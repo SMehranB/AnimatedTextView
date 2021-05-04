@@ -24,6 +24,8 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
 
     var animationDuration: Long = 1000
 
+    private var onAnimationListener: AnimationListener? = null
+
     fun setPrefixSuffix(prefix: String, suffix: String){
         this.prefix = prefix
         this.suffix = suffix
@@ -45,21 +47,15 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
             //THIS IS THE MAIN ANIMATION THAT SETTLES EACH CHAR TO THE TARGET VALUE (CHAR BY CHAR FROM LEFT)
             val settlingAnimation = getSettlingAnimation(targetValue)
 
+            onAnimationListener?.onAnimationStart(this@AnimatedTextView.text.toString(), bareText)
+
             val animatorSet = AnimatorSet()
             animatorSet.apply {
-                addListener(object : Animator.AnimatorListener {
-                    override fun onAnimationStart(p0: Animator?) {
-                    }
-
+                addListener(object : MyAnimatorListener {
                     override fun onAnimationEnd(p0: Animator?) {
                         bareText = targetValue
-                        text = prefix + targetValue + suffix
-                    }
-
-                    override fun onAnimationCancel(p0: Animator?) {
-                    }
-
-                    override fun onAnimationRepeat(p0: Animator?) {
+                        text = "$prefix$targetValue$suffix"
+                        onAnimationListener?.onAnimationEnd(text.toString(), bareText)
                     }
                 })
                 if(equalizer != null){
@@ -70,6 +66,14 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
                 start()
             }
         }
+    }
+
+    fun addOnAnimationListener(animationListener: AnimationListener) {
+        onAnimationListener = animationListener
+    }
+
+    fun getBareText(): String {
+        return bareText
     }
 
     private fun initializeAttributes(context: Context, attributeSet: AttributeSet?) {
@@ -86,7 +90,7 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
         }
 
         bareText = text.toString()
-        text = prefix + text.toString() + suffix
+        text = "$prefix$text$suffix"
     }
 
     private fun setText(textValue: String, prefix: String, suffix: String){
@@ -101,8 +105,8 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
             t += suffix
         }
 
-        text = t
         bareText = textValue
+        text = t
     }
 
     private fun getEqualizerAnimation(targetValue: String): ValueAnimator? {
@@ -236,5 +240,10 @@ class AnimatedTextView: androidx.appcompat.widget.AppCompatTextView {
         }
 
         return sb.toString()
+    }
+
+    interface AnimationListener {
+        fun onAnimationStart(text: String, bareText: String)
+        fun onAnimationEnd(text: String, bareText: String)
     }
 }

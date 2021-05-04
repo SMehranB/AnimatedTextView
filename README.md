@@ -12,6 +12,9 @@
  
  •	 An easy-to-use animateTo() function
  
+ •	 Add AnimationListener 
+ 
+ •	 Get bareText(text without the suffix and prefix) 
 
 ## Screen recording
  
@@ -20,7 +23,7 @@
 # Install
 
  ## Gradle
-```
+```groovy
 allprojects {
 	repositories {
 		...
@@ -28,13 +31,13 @@ allprojects {
 	}
 }
 ```
-```
+```groovy
 dependencies {
-	 implementation 'com.github.SMehranB:AnimatedTextView:1.0.0'
+	 implementation 'com.github.SMehranB:AnimatedTextView:1.1.0'
 }
 ```
 ## Maven
-```
+```groovy
 <repositories>
 	<repository>
 	    <id>jitpack.io</id>
@@ -42,11 +45,11 @@ dependencies {
 	</repository>
 </repositories>
 ```
-```
+```groovy
 <dependency>
 	<groupId>com.github.SMehranB</groupId>
 	<artifactId>AnimatedTextView</artifactId>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 </dependency>
  ```
 # Use
@@ -79,7 +82,18 @@ dependencies {
 ```kotlin
 txtPriceOne.setPrefixSuffix("Price: ", " CAD")
 txtPriceOne.setText("123,456")
+txtPriceOne.addOnAnimationListener(object: AnimatedTextView.AnimationListener{
+    override fun onAnimationStart(text: String, bareText: String) {
+        
+    }
+
+    override fun onAnimationEnd(text: String, bareText: String) {
+        
+    }
+})
+
 txtPriceOne.animateTo("731,984,625")
+textPriceOne.getBareText()
 ```
 
 ## 📄 License

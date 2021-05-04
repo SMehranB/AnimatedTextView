@@ -2,6 +2,7 @@ package com.smb.animatedtextviewsample
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.smb.animatedtextview.AnimatedTextView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,6 +11,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btnAnimate1.setOnClickListener {
+            txtPriceOne.addOnAnimationListener(object: AnimatedTextView.AnimationListener{
+                override fun onAnimationStart(text: String, bareText: String) {
+
+                }
+
+                override fun onAnimationEnd(text: String, bareText: String) {
+
+                }
+            })
             txtPriceOne.animateTo("731,984,625")
             txtPriceTwo.animateTo("937.75")
             txtDate.animateTo("09/28/1998")
